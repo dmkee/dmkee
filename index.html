@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Resume Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Link to external stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    /* Additional styling (can move to styles.css) */
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    .topnav a { margin-right: 15px; text-decoration: none; color: #1c3d5a; }
+    .topnav a:hover { text-decoration: underline; }
+    form { border: 1px solid #ccc; padding: 20px; border-radius: 5px; max-width: 600px; }
+    fieldset { margin-bottom: 15px; }
+    input:focus:valid { border: 2px solid green; }
+    input:focus:invalid { border: 2px solid red; }
+  </style>
+
+  <script>
+    // Requirement: show current time
+    function showTime() {
+      const now = new Date();
+      document.getElementById("currentTime").textContent = "Current time: " + now.toLocaleString();
+    }
+
+    // Requirement: countdown function
+    function countdown() {
+      let timeLeft = 10;
+      const interval = setInterval(() => {
+        if (timeLeft <= 0) {
+          clearInterval(interval);
+          alert("Countdown finished!");
+        } else {
+          console.log("Countdown: " + timeLeft);
+        }
+        timeLeft--;
+      }, 1000);
+    }
+
+    // Requirement: use Math method and conversion
+    console.log("Random integer between 1–100: " + Math.floor(Math.random() * 100));
+    const number = 42;
+    const text = number.toString();
+    const backToNumber = parseInt(text);
+  </script>
+</head>
+<body onload="showTime(); countdown();">
+
+  <!-- Requirement: Navigation bar (Project 1) -->
+  <div class="topnav">
+    <a href="index.html">Home</a>
+    <a href="aboutme.html">About Me</a>
+    <a href="projects.html">Projects</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <h1>Welcome to My Resume Portfolio</h1>
+  <p id="currentTime"></p>
+
+  <!-- Requirement: Alert on page load -->
+  <script>
+    alert("Welcome to my portfolio site!");
+  </script>
+
+  <h1> Hello, everyone!</h1>
+  <p> My name is Devon Kee, and I hope that this page helps you find out a little bit of information about me! Please, feel free to provide some information about yourself so that I can learn more about you.</p>
+
+  <!-- Requirement: Web form (Tutorial 7) -->
+  <form>
+    <fieldset>
+      <legend>Personal Information</legend>
+      
+      <label for="fullname">Full Name:</label>
+      <input type="text" id="fullname" name="fullname" required pattern="[A-Za-z\s]{3,}" title="Enter at least 3 alphabetic characters"><br><br>
+
+      <label for="dob">Date of Birth:</label>
+      <input type="date" id="dob" name="dob" required><br><br>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required><br><br>
+
+      <label for="city">City:</label>
+      <input list="cities" id="city" name="city">
+      <datalist id="cities">
+        <option value="Charlotte">
+        <option value="Greensboro">
+        <option value="Raleigh">
+      </datalist>
+    </fieldset>
+
+    <fieldset>
+      <legend>Skills & Preferences</legend>
+
+      <label><input type="checkbox" name="skills" value="html"> HTML</label>
+      <label><input type="checkbox" name="skills" value="css"> CSS</label>
+      <label><input type="checkbox" name="skills" value="js"> JavaScript</label><br><br>
+
+      <label>Preferred Work Mode:</label>
+      <label><input type="radio" name="workmode" value="remote" required> Remote</label>
+      <label><input type="radio" name="workmode" value="onsite"> On-site</label><br><br>
+
+      <label for="exp">Experience (1-10):</label>
+      <input type="range" id="exp" name="exp" min="1" max="10"><br><br>
+
+      <label for="projects">Completed Projects:</label>
+      <input type="number" id="projects" name="projects" min="0" max="100"><br><br>
+
+      <label for="role">Desired Role:</label>
+      <select id="role" name="role">
+        <option value="frontend">Frontend Developer</option>
+        <option value="backend">Backend Developer</option>
+        <option value="fullstack">Full Stack Developer</option>
+      </select><br><br>
+
+      <label for="bio">Short Bio:</label><br>
+      <textarea id="bio" name="bio" rows="4" cols="50" maxlength="300"></textarea>
+    </fieldset>
+
+    <input type="submit" value="Submit">
+    <input type="reset" value="Reset">
+  </form>
+</body>
+</html>

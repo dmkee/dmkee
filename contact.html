@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+
+<link rel="stylesheet" href="styles.css">
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact Me</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    .topnav a { margin-right: 15px; text-decoration: none; }
+    form { border: 1px solid #ccc; padding: 20px; border-radius: 5px; max-width: 600px; }
+    input:focus:valid { border: 2px solid green; }
+    input:focus:invalid { border: 2px solid red; }
+  </style>
+</head>
+<body>
+  <div class="topnav">
+    <a href="index.html">Home</a>
+    <a href="aboutme.html">About Me</a>
+    <a href="projects.html">Projects</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <h1>Contact Me</h1>
+
+  <!-- Requirement: Form with multiple fieldsets (reuse shown for context) -->
+  <form>
+    <fieldset>
+      <legend>Contact Information</legend>
+
+      <!-- Requirement: text input -->
+      <label for="name">Your Name:</label>
+      <input type="text" id="name" name="name" required pattern="[A-Za-z\s]{3,}" title="At least 3 letters"><br><br>
+
+      <!-- Requirement: email input for mobile keyboard -->
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required><br><br>
+
+      <!-- Requirement: datalist for contact reason -->
+      <label for="reason">Reason for Contact:</label>
+      <input list="reasons" id="reason" name="reason">
+      <datalist id="reasons">
+        <option value="Job Offer">
+        <option value="Collaboration">
+        <option value="Freelance Inquiry">
+        <option value="Other">
+      </datalist><br><br>
+    </fieldset>
+
+    <fieldset>
+      <legend>Your Message</legend>
+
+      <!-- Requirement: text area -->
+      <label for="message">Message:</label><br>
+      <textarea id="message" name="message" rows="6" cols="50" maxlength="500" required></textarea>
+    </fieldset>
+
+    <!-- Requirement: submit and reset buttons -->
+    <input type="submit" value="Send Message">
+    <input type="reset" value="Clear">
+  </form>
+</body>
+</html>
